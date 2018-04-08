@@ -10,3 +10,4 @@ weatherDict = json.loads(response.text)
 print(weatherDict['current_observation']['display_location']['full'])
 print("Current Temp: {0} F".format(weatherDict['current_observation']['temp_f']))
 
+print("Windstring: {0} ".format(weatherDict['current_observation']['wind_string']))
