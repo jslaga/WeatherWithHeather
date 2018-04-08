@@ -8,4 +8,5 @@ response = requests.get(wu_api_url)
 weatherDict = json.loads(response.text)
 
 print(weatherDict['current_observation']['display_location']['full'])
+print("Current Temp: {0} F".format(weatherDict['current_observation']['temp_f']))
 
