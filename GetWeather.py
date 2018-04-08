@@ -4,7 +4,6 @@ wu_api_key = "f357186b72c393f0"
 wu_api_url = "https://api.wunderground.com/api/{0}/conditions/q/CO/Denver.json".format(wu_api_key)
 
 response = requests.get(wu_api_url)
-print(response.text)
 
 weatherDict = json.loads(response.text)
 
