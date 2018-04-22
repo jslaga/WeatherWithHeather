@@ -1,14 +1,17 @@
-import requests, json, argparse
+import requests, json, argparse, configparser
+
 
 def main():
+    config = configparser.ConfigParser()
+    config.read('GetWeather.cfg')
+    wu_api_key = config.get('api', 'key')
     parser = argparse.ArgumentParser()
-    parser.add_argument('api_key')
     parser.add_argument('city')
     parser.add_argument('state')
     args = parser.parse_args()
 
 
-    wu_api_key = args.api_key
+
     wu_city = args.city
     wu_state = args.state
     print(wu_api_key, wu_city, wu_state)
