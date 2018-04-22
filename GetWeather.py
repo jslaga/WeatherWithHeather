@@ -1,7 +1,18 @@
-import requests, json
+import requests, json, argparse
 
-wu_api_key = "f357186b72c393f0"
-wu_api_url = "https://api.wunderground.com/api/{0}/conditions/q/CO/Denver.json".format(wu_api_key)
+parser = argparse.ArgumentParser()
+parser.add_argument('api_key')
+parser.add_argument('city')
+parser.add_argument('state')
+args = parser.parse_args()
+
+
+wu_api_key = args.api_key
+wu_city = args.city
+wu_state = args.state
+print(wu_api_key, wu_city, wu_state)
+wu_api_url = "https://api.wunderground.com/api/{0}/conditions/q/{2}/{1}.json".format(wu_api_key,
+                                                                                    wu_city, wu_state)
 
 response = requests.get(wu_api_url)
 
